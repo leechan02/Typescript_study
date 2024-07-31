@@ -1,2 +1,2 @@
-let a = 3 + '5';
-console.log(a); // 35
+// let a = 3 + '5';
+// console.log(a); // 35
