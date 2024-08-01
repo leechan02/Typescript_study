@@ -19,3 +19,33 @@ class Block implements BlockShape{
     return crypto.createHash('sha256').update(toHash).digest('hex');
   }
 }
+
+class Blockshain {
+  private blocks: Block[];
+  constructor() {
+    this.blocks = [];
+  }
+  private getPrevHash() {
+    if (this.blocks.length === 0) {
+      return "";
+    }
+    return this.blocks[this.blocks.length - 1].hash;
+  }
+  public addBlock(data:string) {
+    const newBlock = new Block(this.getPrevHash(), this.blocks.length + 1, data);
+    this.blocks.push(newBlock);
+  }
+  public getBlocks() {
+    return [...this.blocks];
+  }
+}
+
+const blockchain = new Blockshain();
+
+blockchain.addBlock("Hello");
+blockchain.addBlock("World");
+blockchain.addBlock("Bye");
+
+blockchain.getBlocks().push(new Block("hacked", 100000, "hacked"));
+
+console.log(blockchain.getBlocks());
