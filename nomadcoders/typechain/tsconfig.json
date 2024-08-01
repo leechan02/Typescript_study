@@ -5,6 +5,8 @@
   "compilerOptions": {
     "target": "es5",
     "outDir": "build",
+    "esModuleInterop": true,
     "lib": ["es6", "dom"],
+    "strict": true
   }
 }
